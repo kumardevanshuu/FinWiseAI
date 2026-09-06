@@ -3,10 +3,10 @@
 **🔗 Live app:** https://finwiseai-five.vercel.app
 **📦 Backend API docs:** https://finwiseai-backend.onrender.com/docs
 
-FinWiseAI is a full-stack personal finance app that helps you track income and
-expenses, set and monitor savings goals, and understand your spending through
-visual analytics — with an AI-powered financial advisor built in that can
-answer questions about your own budget, goals, and transactions in real time.
+FinWiseAI is a full-stack personal finance app that helps it's user to track income and
+expenses, set and monitor saving goals and understand their spending through
+visual analytics with an built-in AI-powered financial advisor that can
+answer questions about your own budget, goals and transactions in real time.
 
 > **Try :** email `demo@finwiseai.com`, password `demo1234`
 > ( [Demo account](#demo-account))
