@@ -8,10 +8,11 @@ expenses, set and monitor savings goals, and understand your spending through
 visual analytics — with an AI-powered financial advisor built in that can
 answer questions about your own budget, goals, and transactions in real time.
 
-> **Try it instantly:** email `demo@finwiseai.com`, password `demo1234`
-> (see [Demo account](#demo-account) below)
+> **Try :** email `demo@finwiseai.com`, password `demo1234`
+> ( [Demo account](#demo-account))
 
-<!-- Add a screenshot or short GIF of the dashboard here, e.g.: -->
+<img width="1917" height="967" alt="image" src="https://github.com/user-attachments/assets/6b0d3892-d704-4cdf-a6ba-b10e7c125be2" />
+
 <!-- ![FinWiseAI dashboard](docs/screenshot-dashboard.png) -->
 
 ## Features
