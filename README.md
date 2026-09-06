@@ -34,8 +34,7 @@ answer questions about your own budget, goals, and transactions in real time.
 
 ## Demo account
 
-Feel free to explore with a read-only-in-spirit demo account (please don't
-change the password!):
+Feel free to explore with a demo account:
 Email: demo@finwiseai.com
 Password: demo1234
 
