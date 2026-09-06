@@ -11,9 +11,12 @@ answer questions about your own budget, goals, and transactions in real time.
 > **Try :** email `demo@finwiseai.com`, password `demo1234`
 > ( [Demo account](#demo-account))
 
-<img width="1917" height="967" alt="image" src="https://github.com/user-attachments/assets/6b0d3892-d704-4cdf-a6ba-b10e7c125be2" />
+<img width="1903" height="961" alt="image" src="https://github.com/user-attachments/assets/80a6854c-210a-4660-810a-6a4a884d557a" />
+<img width="1907" height="912" alt="image" src="https://github.com/user-attachments/assets/e8c6431c-1852-413e-8039-11e7c2ad93bb" />
+<img width="1897" height="952" alt="image" src="https://github.com/user-attachments/assets/6540e071-5b37-400d-8d46-1fe896dbe802" />
+<img width="1882" height="938" alt="image" src="https://github.com/user-attachments/assets/110f6e14-f5a8-48e5-91a1-500f974e937f" />
 
-![FinWiseAI dashboard](docs/screenshot-dashboard.png)
+![FinWiseAI -(dashboard)(goals)(insights)(AI advisor)]
 
 
 ## Features
