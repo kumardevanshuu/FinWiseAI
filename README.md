@@ -47,9 +47,9 @@ Password: demo1234
 ```bash
 cd backend
 python -m venv venv
-venv\Scripts\activate        # macOS/Linux: source venv/bin/activate
+venv\Scripts\activate        
 pip install -r requirements.txt
-copy .env.example .env       # macOS/Linux: cp .env.example .env
+copy .env.example .env    
 ```
 
 Fill in `.env` with a real `SECRET_KEY`, a PostgreSQL `DATABASE_URL`
@@ -67,7 +67,7 @@ API docs available at `http://localhost:8000/docs`.
 ```bash
 cd frontend
 npm install
-copy .env.example .env       # macOS/Linux: cp .env.example .env
+copy .env.example .env      
 npm run dev
 ```
 
