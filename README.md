@@ -13,7 +13,8 @@ answer questions about your own budget, goals, and transactions in real time.
 
 <img width="1917" height="967" alt="image" src="https://github.com/user-attachments/assets/6b0d3892-d704-4cdf-a6ba-b10e7c125be2" />
 
-<!-- ![FinWiseAI dashboard](docs/screenshot-dashboard.png) -->
+![FinWiseAI dashboard](docs/screenshot-dashboard.png)
+
 
 ## Features
 
