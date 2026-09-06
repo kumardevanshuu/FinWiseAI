@@ -1,12 +1,3 @@
-// src/components/assistant/AIChatWindow.jsx
-//
-// NOTE: this used to be a self-contained component that fetched its own
-// history and rendered its own <AIChatInput> — but never imported
-// AIChatInput (ReferenceError crash on render), and expected a
-// "conversationId" prop that the parent (pages/Assistant.jsx) never
-// passed (it manages conversation state itself and passes "messages"
-// + "loading" instead). Simplified to a plain presentational component
-// that matches what Assistant.jsx actually gives it.
 import React, { useEffect, useRef } from "react";
 import MessageBubble from "./AIMessageBubble";
 

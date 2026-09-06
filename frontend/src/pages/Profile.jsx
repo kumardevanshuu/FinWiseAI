@@ -1,4 +1,3 @@
-// src/pages/Profile.jsx
 import React, { useEffect, useState } from "react";
 import API from "../services/api";
 import ProfileCard from "../components/profile/ProfileCard";

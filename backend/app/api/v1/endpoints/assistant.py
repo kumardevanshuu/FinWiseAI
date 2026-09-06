@@ -1,5 +1,3 @@
-# app/api/v1/endpoints/assistant.py
-
 from typing import Optional, List
 from datetime import datetime
 import json

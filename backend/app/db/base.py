@@ -1,7 +1,4 @@
-# app/db/base.py
-from app.db.base_class import Base
-
-# import modules so SQLAlchemy/Alembic can detect models (keep at bottom)
+from app.db.base_class import Base        # importing modules so SQLAlchemy/Alembic can detect models
 from app.models import user_model
 from app.models import transaction_model
 from app.models import goal_model

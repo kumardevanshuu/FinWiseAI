@@ -1,4 +1,3 @@
-# app/services/email_verification.py
 import uuid
 import time
 from typing import Dict

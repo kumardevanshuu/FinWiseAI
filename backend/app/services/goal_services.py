@@ -1,5 +1,3 @@
-# app/services/goal_service.py
-
 from sqlalchemy.orm import Session
 from typing import List
 from datetime import datetime

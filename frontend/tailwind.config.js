@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#0A0A0B",          // page background, near-black
+        bg: "#0A0A0B",          // page background
         surface: "#141516",     // card background
         surfaceHover: "#1B1D1F",
         border: "#26282B",
@@ -16,7 +16,7 @@ export default {
           light: "#34D399",
         },
         rose: {
-          DEFAULT: "#FB7185",   // expenses / negative
+          DEFAULT: "#FB7185",   // expenses 
           dark: "#E11D48",
         },
         amber: {

@@ -1,5 +1,3 @@
-# app/models/user_model.py
-
 from sqlalchemy import Column, Integer, String, TIMESTAMP, text
 from app.db.base_class import Base
 

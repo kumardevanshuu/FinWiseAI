@@ -1,5 +1,3 @@
-# app/routes/charts/category_expense.py (renamed from category.expense.py — dots
-# aren't valid in a module path, which is also why this router was never wired up)
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from sqlalchemy import func

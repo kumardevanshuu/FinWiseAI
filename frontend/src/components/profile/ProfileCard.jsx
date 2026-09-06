@@ -1,4 +1,3 @@
-// src/components/profile/ProfileCard.jsx
 import React from "react";
 
 export default function ProfileCard({ user }) {

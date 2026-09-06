@@ -1,4 +1,3 @@
-// src/pages/Analytics.jsx
 import React, { useEffect, useState } from "react";
 import { motion as Motion } from "framer-motion";
 import API from "../services/api";

@@ -1,4 +1,3 @@
-// src/components/transactions/AddTransaction.jsx
 import React, { useState, useMemo } from "react";
 import API from "../../services/api";
 import { expenseCategories, incomeCategories } from "../../data/categories";

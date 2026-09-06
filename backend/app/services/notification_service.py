@@ -1,4 +1,3 @@
-# app/services/notification_service.py
 import logging
 from typing import List, Dict
 from datetime import datetime, timedelta

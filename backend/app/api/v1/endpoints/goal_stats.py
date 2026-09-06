@@ -1,12 +1,3 @@
-# app/api/v1/endpoints/goal_stats.py
-#
-# NOTE: this file used to be a broken copy-paste of goals.py's CRUD
-# (create/update/delete), using a "current_amount" field that doesn't
-# exist on the Goal model (the real column is "saved_amount"), which
-# raised a TypeError any time it was called. Replaced with actual
-# read-only aggregate stats, matching what the "/goals/stats" name
-# implies.
-
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 

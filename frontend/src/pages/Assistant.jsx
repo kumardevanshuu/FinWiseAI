@@ -23,10 +23,6 @@ export default function Assistant() {
   };
 
   useEffect(() => {
-    // On page load (or when navigating back to /assistant), auto-open the
-    // most recently active conversation instead of showing a blank chat
-    // conversations are already saved permanently in the database, this
-    // just restores which one you were looking at.
     (async () => {
       const list = await loadConversations();
       if (list.length > 0) {

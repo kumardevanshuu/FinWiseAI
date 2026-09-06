@@ -2,7 +2,5 @@ FROM node:18
 WORKDIR /app
 COPY . .
 RUN npm install --prefix frontend
-# "npm start" doesn't exist for this Vite project — use the dev server
-# and bind to 0.0.0.0 so it's reachable from outside the container.
 WORKDIR /app/frontend
 CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]

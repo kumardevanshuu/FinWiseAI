@@ -1,5 +1,3 @@
-# app/services/assistant_service.py
-
 import logging
 from sqlalchemy.orm import Session
 from typing import List, Dict, Optional, Generator
@@ -15,24 +13,19 @@ from app.models.conversation_model import Conversation
 from app.models.message_model import Message
 from app.models.transaction_model import Transaction
 
-# Optional import
 try:
     from app.models.goal_model import Goal
 except:
     Goal = None
 
-# -------------------------------------
 # GROQ CLIENT
-# -------------------------------------
 from groq import Groq
 groq_client = Groq(api_key=settings.GROQ_API_KEY)
 
 logger = logging.getLogger(__name__)
 
 
-# -------------------------------------
 # FETCH USER DATA HELPERS
-# -------------------------------------
 def fetch_user_profile(db: Session, user_id: int) -> dict:
     user = db.query(User).filter(User.id == user_id).first()
     if not user:
@@ -115,9 +108,7 @@ def compute_basic_analytics(transactions: List[dict]) -> dict:
     }
 
 
-# -------------------------------------
 # CONVERSATION HELPERS
-# -------------------------------------
 def get_recent_messages(db: Session, conv: Conversation, limit: int = None):
     limit = limit or settings.LLM_MAX_HISTORY_MESSAGES
     msgs = (
@@ -153,9 +144,7 @@ def build_prompt_messages(profile, goals, analytics, recent_messages, summary):
     return messages
 
 
-# -------------------------------------
 # NON-STREAMING FALLBACK CALL
-# -------------------------------------
 def call_llm(messages):
     try:
         resp = groq_client.chat.completions.create(
@@ -170,9 +159,7 @@ def call_llm(messages):
         return f"[Groq Error] {str(e)}"
 
 
-# -------------------------------------
 # SUMMARIZATION LOGIC
-# -------------------------------------
 def summarize_if_needed(db: Session, conv: Conversation):
 
     msg_count = db.query(Message).filter(Message.conversation_id == conv.id).count()
@@ -197,9 +184,7 @@ def summarize_if_needed(db: Session, conv: Conversation):
     return new_summary
 
 
-# -------------------------------------
 # STANDARD (NON-STREAMING) AI REPLY
-# -------------------------------------
 def generate_assistant_reply(db: Session, conv: Conversation, user: User, user_msg: str):
 
     # Save user message
@@ -236,9 +221,7 @@ def generate_assistant_reply(db: Session, conv: Conversation, user: User, user_m
     }
 
 
-# -------------------------------------
-# HELPER: CHUNK TEXT (fallback mode)
-# -------------------------------------
+# HELPER: CHUNK TEXT (FALLBACK MODE)
 def _chunk_text(text: str, max_chars: int = 200) -> Generator[str, None, None]:
     sentences = re.split(r'(?<=[.!?])\s+', text.strip())
 
@@ -259,9 +242,7 @@ def _chunk_text(text: str, max_chars: int = 200) -> Generator[str, None, None]:
             yield chunk
 
 
-# -------------------------------------
 # FULLY FIXED GROQ STREAMING IMPLEMENTATION
-# -------------------------------------
 def generate_assistant_reply_stream(db: Session, conv: Conversation, user: User, user_msg: str):
     """
     Yields:
@@ -270,7 +251,7 @@ def generate_assistant_reply_stream(db: Session, conv: Conversation, user: User,
       {"type":"error","message":"..."}
     """
 
-    # 1) Save user message
+    # Save user message
     user_message = Message(
         conversation_id=conv.id,
         role="user",
@@ -280,7 +261,7 @@ def generate_assistant_reply_stream(db: Session, conv: Conversation, user: User,
     db.commit()
     db.refresh(user_message)
 
-    # 2) Build complete context
+    # Build complete context
     profile = fetch_user_profile(db, user.id)
     transactions = fetch_recent_transactions(db, user.id, limit=40)
     goals = fetch_goals(db, user.id)
@@ -292,7 +273,7 @@ def generate_assistant_reply_stream(db: Session, conv: Conversation, user: User,
 
     final_text = ""
 
-    # 3) TRUE STREAMING via Groq
+    #TRUE STREAMING WITH Groq
     try:
         stream = groq_client.chat.completions.create(
             model=settings.GROQ_MODEL,
@@ -312,7 +293,7 @@ def generate_assistant_reply_stream(db: Session, conv: Conversation, user: User,
                 continue
 
     except Exception as e:
-        # Streaming failed → fallback to normal mode
+        # Streaming failed fallback to normal mode
         try:
             final_text = call_llm(prompt)
             for part in _chunk_text(final_text):
@@ -321,7 +302,7 @@ def generate_assistant_reply_stream(db: Session, conv: Conversation, user: User,
             yield {"type": "error", "message": f"LLM error: {str(e2)}"}
             return
 
-    # 4) Save assistant message
+    # Save assistant message
     try:
         ai_msg = Message(
             conversation_id=conv.id,

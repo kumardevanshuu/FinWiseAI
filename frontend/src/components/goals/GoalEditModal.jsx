@@ -1,4 +1,3 @@
-// src/components/goals/GoalEditModal.jsx
 import React, { useState, useEffect } from "react";
 import API from "../../services/api";
 

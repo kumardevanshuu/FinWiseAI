@@ -1,5 +1,3 @@
-# app/models/conversation_model.py
-
 from sqlalchemy import Column, Integer, String, TIMESTAMP, text
 from sqlalchemy.orm import relationship
 

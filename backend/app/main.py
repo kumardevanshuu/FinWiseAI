@@ -1,5 +1,3 @@
-# app/main.py
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -21,13 +19,11 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="FinWiseAI Backend")
 
-# Allowed frontend origins — configurable via CORS_ORIGINS in .env,
-# instead of being hardcoded to localhost:5173 only.
 origins = settings.cors_origins_list
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,      # ❗ MUST NOT be "*"
+    allow_origins=origins,      
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -9,9 +9,8 @@ export default function AIChatInput({
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // --- STREAM MESSAGE FUNCTION ---
   async function streamAssistantMessage(conversationId, message) {
-    const token = localStorage.getItem("access_token"); // ✅ ALWAYS TAKE TOKEN FROM LOCALSTORAGE
+    const token = localStorage.getItem("access_token"); 
 
     const apiBase = import.meta.env.VITE_API_URL || "";
     const res = await fetch(
@@ -20,7 +19,7 @@ export default function AIChatInput({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // ✅ FIXED
+          Authorization: `Bearer ${token}`, 
         },
         body: JSON.stringify({ conversation_id: conversationId, message }),
       }
@@ -38,7 +37,6 @@ export default function AIChatInput({
     const decoder = new TextDecoder();
     let assistantText = "";
 
-    // --- STREAM LOOP ---
     while (true) {
       const { value, done } = await reader.read();
       if (done) break;
@@ -61,7 +59,6 @@ export default function AIChatInput({
           continue;
         }
 
-        // --- HANDLE STREAM EVENT TYPES ---
         if (evt.type === "partial") {
           assistantText += evt.text;
           setMessages((prev) => [
@@ -86,14 +83,12 @@ export default function AIChatInput({
     }
   }
 
-  // --- SEND BUTTON HANDLER ---
   const sendMessage = async () => {
     if (!text.trim()) return;
 
     const userMsg = { sender: "user", text };
     onSend(userMsg);
 
-    // Temporary AI placeholder
     setMessages((prev) => [...prev, { sender: "ai", text: "" }]);
 
     setLoading(true);

@@ -1,5 +1,3 @@
-# app/models/transaction_model.py
-
 from sqlalchemy import Column, Integer, String, Numeric, ForeignKey, TIMESTAMP, text
 from sqlalchemy.orm import relationship
 from app.db.base_class import Base

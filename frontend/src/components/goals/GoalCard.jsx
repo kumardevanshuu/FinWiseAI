@@ -1,4 +1,3 @@
-// src/components/goals/GoalCard.jsx
 import React, { useState } from "react";
 import ProgressBar from "./ProgressBar";
 import GoalEditModal from "./GoalEditModal";

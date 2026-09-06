@@ -1,4 +1,3 @@
-// src/components/transactions/TransactionFilters.jsx
 import React, { useState, useEffect, useMemo } from "react";
 import { expenseCategories } from "../../data/categories";
 
