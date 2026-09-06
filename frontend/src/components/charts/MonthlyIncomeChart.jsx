@@ -1,0 +1,75 @@
+import React, { useEffect, useState } from "react";
+import API from "../../services/api";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
+
+export default function MonthlyIncomeChart() {
+  const [chartData, setChartData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    API.get("/api/v1/transactions")
+      .then((res) => {
+        const income = res.data.filter((t) => t.type === "income");
+
+        const grouped = {};
+        income.forEach((t) => {
+          const month = new Date(t.date).toLocaleString("en", { month: "short" });
+          grouped[month] = (grouped[month] || 0) + t.amount;
+        });
+
+        const labels = Object.keys(grouped);
+        const values = Object.values(grouped);
+
+        setChartData({
+          labels,
+          datasets: [
+            {
+              label: "Monthly income",
+              data: values,
+              borderColor: "#10B981",
+              backgroundColor: "rgba(16, 185, 129, 0.15)",
+              pointBackgroundColor: "#10B981",
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+            },
+          ],
+        });
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <p className="text-sm text-muted">Loading income chart…</p>;
+  if (!chartData) return <p className="text-sm text-rose">Failed to load chart.</p>;
+
+  const options = {
+    responsive: true,
+    plugins: { legend: { display: false }, tooltip: { mode: "index", intersect: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: "#9CA3AF", font: { family: "Inter", size: 11 } } },
+      y: {
+        beginAtZero: true,
+        grid: { color: "#26282B" },
+        ticks: { color: "#9CA3AF", font: { family: "Inter", size: 11 } },
+      },
+    },
+  };
+
+  return (
+    <div>
+      <h3 className="text-lg font-bold text-white mb-3">Monthly income</h3>
+      <Line data={chartData} options={options} />
+    </div>
+  );
+}

@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 12% -8%, rgba(171, 38, 113, 0.574), transparent 28rem),
+    radial-gradient(circle at 92% 10%, rgba(20, 164, 90, 0.704), transparent 26rem),
+    #0A0A0B;
+  color: #F4F4F5;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease,
+    box-shadow 180ms ease, transform 180ms ease;
+}
+
+/* Money figures use tabular-nums so columns of amounts line up. */
+.figure {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+::selection {
+  background-color: rgba(16, 185, 129, 0.3);
+  color: #F4F4F5;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #10B981;
+  outline-offset: 2px;
+}
+
+/* Soft blurred glow blobs, used behind hero/dashboard sections for depth. */
+.glow-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 72%);
+}
+
+.page-shell {
+  width: min(100%, 1184px);
+  margin-inline: auto;
+  padding: 2.75rem 1.5rem 4rem;
+}
+
+.page-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #9CA3AF;
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-kicker::before {
+  content: "";
+  width: 1.45rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.65;
+}
+
+.soft-card {
+  background: linear-gradient(145deg, rgba(30, 32, 34, 0.94), rgba(20, 21, 22, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 18px 50px -30px rgba(0, 0, 0, 0.78);
+}
+
+.subtle-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3d40 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0B;
+}
+::-webkit-scrollbar-thumb {
+  background: #26282B;
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: 2rem 1rem 3rem;
+  }
+}
