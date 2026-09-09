@@ -30,11 +30,11 @@ answer questions about your own budget, goals and transactions in real time.
 
 ## Tech Stack
 
-**Frontend:** React (Vite), Tailwind CSS, Chart.js, Framer Motion
-**Backend:** FastAPI, SQLAlchemy, PostgreSQL
-**AI:** Groq API (LLM-powered financial assistant)
-**Auth:** JWT-based authentication with bcrypt password hashing
-**Deployed on:** Vercel (frontend), Render (backend), Neon (PostgreSQL)
+**Frontend:** React (Vite), Tailwind CSS, Chart.js, Framer Motion\
+**Backend:** FastAPI, SQLAlchemy, PostgreSQL\
+**AI:** Groq API (LLM-powered financial assistant)\
+**Auth:** JWT-based authentication with bcrypt password hashing\
+**Deployed on:** Vercel (frontend), Render (backend), Neon (PostgreSQL)\
 
 ## Demo account
 
