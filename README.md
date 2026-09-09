@@ -24,8 +24,8 @@ answer questions about your own budget, goals and transactions in real time.
 - 🔐 Secure signup/login with JWT authentication (bcrypt password hashing)
 - 💰 Track income and expense transactions with categorization and filtering
 - 🎯 Set savings goals with progress tracking
-- 📊 Visual analytics — monthly income/expense trends, category breakdowns, budget status
-- 🤖 AI advisor chat (Groq-powered LLM) that answers questions about your spending, goals, and budget, with full conversation history
+- 📊 Visual analytics -- monthly income/expense trends, category breakdowns, budget status
+- 🤖 AI advisor chat (Groq-powered LLM) that answers questions about your spending, goals and budget with full conversation history
 - 🌓 Dark-themed, responsive UI built with Tailwind CSS
 
 ## Tech Stack
